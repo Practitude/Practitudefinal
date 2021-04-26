@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+body {overflow-x: hidden;
+background-color: #273c75;}
+.clubname{
+  font-family: 'Orelega One', cursive;
+  color:#f9ca24;
+  font-size: 40px;
+  margin:0 auto;
+}
+
+</style>
+    <title>Practitude</title>
+    <meta charset="UTF-8" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Orelega+One&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css" >
+   </head>
+<body>
+
+
+<div class="row mt-5">
+
+    <div class="col-md-6 m-auto">
+      <div class="card card-body">
+        <img class="mukandimage" src="/images/download.jpeg" width="150px" height="50px">
+        <h2 class="clubname">" ADROIT's HUB "</h2>
+       <h4 class="text-center mb-3">
+           Register
+        </h4>
+        <%- include ("./partials/messages"); %>
+        <form action="/users/register" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="name"
+              id="name"
+              name="name"
+              class="form-control"
+              placeholder="Enter Name"
+              autocomplete="off"
+              value="<%= typeof name != 'undefined' ? name : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter Email"
+              autocomplete="off"
+              pattern="[a-z0-9._%+-]*[@]jmit.ac.in"
+              title="it must contain @jmit.ac.in" required
+              value="<%= typeof email != 'undefined' ? email : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="roll">Roll</label>
+            <input
+              type="number"
+              id="roll"
+              name="roll"
+              class="form-control"
+              autocomplete="off"
+              placeholder="Enter Roll"
+              value="<%= typeof roll != 'undefined' ? roll : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="batch">Batch</label>
+            <input
+              type="number"
+              id="batch"
+              name="batch"
+              class="form-control"
+              pattern="[0-9._%+-]"
+              placeholder="Enter Batch( eg : passingyear=2022 )"
+              autocomplete="off"
+              value="<%= typeof batch != 'undefined' ? batch : '' %>"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              autocomplete="off"
+              placeholder="Create Password"
+              value="<%= typeof password != 'undefined' ? password : '' %>"
+            />
+            <input  id="check" type="checkbox" onclick="myFunction()"> Show Password
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input
+              type="password"
+              id="password2"
+              name="password2"
+              class="form-control"
+              autocomplete="off"
+              placeholder="Confirm Password"
+              value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
+            />
+
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            Register
+          </button>
+        </form>
+        <p class="lead mt-4">Have An Account? <a href="/users/login">Login</a></p>
+      </div>
+    </div>
+  </div>
+<script>
+function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+
+  </body>
+</html>
